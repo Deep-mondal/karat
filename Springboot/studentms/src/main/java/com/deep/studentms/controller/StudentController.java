@@ -15,6 +15,10 @@ public class StudentController {
 
     @Autowired
     StudentServices service;
+    @GetMapping("/{id}")
+    public Student getStudent(@PathVariable Long id){
+        return service.findById(id);
+    }
 
     @PostMapping
     public Student addStudent(@RequestBody Student s){

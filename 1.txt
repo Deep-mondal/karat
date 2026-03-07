@@ -1,20 +1,54 @@
-
-
-
-
-
-
-
-
-
-
-
-
 File I/o
 serialiation
 Regex
-
 Enum
 Internartionalization
+=======================
+feign client
+it follows declaretive
+dependancy: openFeign
+=============================
+dependancies for api gate way:
+1.gateway
+2.cloud bootstrap//
+3.spring reactive web//
+4.eureka discovery client
+=============================
+server.port=8080
+
+# Eureka Configuration
+eureka.client.service-url.defaultZone=http://localhost:8762/eureka
+eureka.client.fetch-registry=true
+eureka.client.register-with-eureka=true
+
+# Gateway Configuration
+spring.cloud.gateway.discovery.locator.enabled=true
+spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+
+# Teacher Service Route
+spring.cloud.gateway.routes[0].id=teacher-service
+spring.cloud.gateway.routes[0].uri=lb://teacherms
+spring.cloud.gateway.routes[0].predicates[0]=Path=/teachers/**
+
+# Student Service Route
+spring.cloud.gateway.routes[1].id=student-service
+spring.cloud.gateway.routes[1].uri=lb://studentms
+spring.cloud.gateway.routes[1].predicates[0]=Path=/students/**
+=================================
+config-server dependancies:
+1.config server
+2.Eureka discovary client
+==================================
+fault violance dependancies:
+1.acuators
+2.aop
+3.resilienc 4j circuit breaker jar//
+4.resilienc 4j spring boot 2 jar
+========================
+1.response entity
+2.postman port
+3.config server
+4.resttemplate CRUD
+5.jdbc CRUD
 
 

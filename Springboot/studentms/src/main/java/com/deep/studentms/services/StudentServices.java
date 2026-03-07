@@ -15,6 +15,9 @@ public class StudentServices {
 
     @Autowired
     StudentRepositary repo;
+    public Student findById(Long id){
+        return repo.findById(id).orElse(null);
+    }
 
     public Student saveStudent(Student s){
         return repo.save(s);

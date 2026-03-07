@@ -3,6 +3,7 @@ package com.deep.teacherms.controller;
 
 import java.util.List;
 
+import com.deep.teacherms.dto.StudentDTO;
 import com.deep.teacherms.model.Teacher;
 import com.deep.teacherms.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,9 @@ public class TeacherController {
     @GetMapping("/{id}")
     public Teacher getTeacher(@PathVariable Long id){
         return service.getTeacher(id);
+    }
+    @GetMapping("/students/{id}")
+    public StudentDTO getStudent(@PathVariable Long id){
+        return service.getStudentDetails(id);
     }
 }
