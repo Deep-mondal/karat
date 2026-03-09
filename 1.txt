@@ -50,5 +50,6 @@ fault violance dependancies:
 3.config server
 4.resttemplate CRUD
 5.jdbc CRUD
+6.fallback mechanism
 
 
